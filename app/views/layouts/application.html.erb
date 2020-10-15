@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RspecTest</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= link_to("TOP", root_path, class: "glyphicon glyphicon-home", data: {"turbolinks" => false}) %></li>
+    <% if user_signed_in? %>
+      <%= link_to("ログアウト", destroy_user_session_path, method: :get ,class: "glyphicon glyphicon-log-out", data: {"turbolinks" => false}) %>
+    <% else %>
+      <%= link_to("新規登録", new_user_registration_path, class: "glyphicon glyphicon-edit", data: {"turbolinks" => false}) %>
+      <%= link_to("ログイン", new_user_session_path, class: "glyphicon glyphicon-log-in", data: {"turbolinks" => false}) %>
+    <% end %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </body>
+</html>
